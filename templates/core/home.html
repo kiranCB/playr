@@ -1,0 +1,371 @@
+{% extends 'base.html' %}{% block content %}
+{% include 'includes/navbar.html' %}
+
+<!-- ===================== card horizontal slick start======================== -->
+
+<!-- most played songs -->
+<section class="mt-0">
+  <div>
+    <p class="h1 mt-0 p-3 text-light">Most Listened Songs</p>
+    <div class="container">
+      <div class="responsive">
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/blinding_lights.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Blinding Lights</h5>
+              <p class="card-text" style="height: 30px">singer: The Weekend</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/kesariya.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Kesariya</h5>
+              <p class="card-text" style="height: 30px">
+                singer: Arjith Singh, Pritam Chakraborty,
+              </p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/perfect.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Perfect</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/bad-blood.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Bad Blood</h5>
+              <p class="card-text" style="height: 30px">singer: Taylor Swift</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/illuminate.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Illuminate</h5>
+              <p class="card-text" style="height: 30px">singer: Shawn Mendes</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/folklore.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Folklore</h5>
+              <p class="card-text" style="height: 30px">singer: Taylor Swift</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/mercy.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Mercy</h5>
+              <p class="card-text" style="height: 30px">singer: Shawn Mendes</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/roar.png"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Roar</h5>
+              <p class="card-text" style="height: 30px">singer: Katy Perry</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===========Song by singers =========-->
+  <!-- Ed Sheeren -->
+  <div>
+    <p class="h1 m-3 text-light">Ed Sheeren Hits</p>
+    <div class="container">
+      <div class="responsive">
+        <div class="">
+          <div class="card mx-3">
+            <img
+              src="media/songs/shapeofyou.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Shape Of You</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              src="media/songs/Divide.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Divide</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              src="media/songs/perfect.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Perfect</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              src="media/songs/pokemon.jpeg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">pokemon Go</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              src="media/songs/bad_habits.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Bad habits</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3d">
+            <img
+              src="media/songs/shivers.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Shivers</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top songs of the Weeek -->
+
+  <div>
+    <p class="h1 mt-0 mb-3 text-light">Top 10 Songs of The Week</p>
+    <div class="container">
+      <div class="responsive">
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/blinding_lights.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Blinding Lights</h5>
+              <p class="card-text" style="height: 30px">singer: The Weekend</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/kesariya.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Kesariya</h5>
+              <p class="card-text" style="height: 30px">
+                singer: Arjith Singh, Pritam Chakraborty,
+              </p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/perfect.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Perfect</h5>
+              <p class="card-text" style="height: 30px">singer: Ed Sheeren</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/bad-blood.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Bad Blood</h5>
+              <p class="card-text" style="height: 30px">singer: Taylor Swift</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/illuminate.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Illuminate</h5>
+              <p class="card-text" style="height: 30px">singer: Shawn Mendes</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/folklore.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Folklore</h5>
+              <p class="card-text" style="height: 30px">singer: Taylor Swift</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/mercy.jpg"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Mercy</h5>
+              <p class="card-text" style="height: 30px">singer: Shawn Mendes</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+        <div class="">
+          <div class="card mx-3">
+            <img
+              style="height: 250px"
+              src="media/songs/roar.png"
+              class="card-img-top"
+              style="height: 250px"
+            />
+            <div class="card-body overflow-hidden">
+              <h5 class="card-title">Roar</h5>
+              <p class="card-text" style="height: 30px">singer: Katy Perry</p>
+              <a href="{% url 'core:player' %}" class="btn btn-primary">Listen now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'core:join' %}"><button type="button" class="text-light btn btn-1 fs-2 fw-semibold btn-default btn-circle btn-xl">Join
+  </button></a>
+  <a href="{% url 'core:host' %}"><button type="button" class="btn btn-2 text-light fs-2 fw-semibold btn-default btn-circle btn-xl">Host
+  </button></a>
+</section>
+
+<!-- ===================== card horizontal slick end======================== -->
+{% include 'includes/footer.html' %}
+{% endblock content %}

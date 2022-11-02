@@ -1,0 +1,71 @@
+/*================= Text decoration start ==================== */
+
+.text-justify {
+  text-align: justify;
+}
+a{
+  text-decoration: none;
+}
+body {
+  font-family: "Basier Square", sans-serif;
+
+}
+.poppins{
+    font-family: 'Poppins', sans-serif;
+}
+/*================= Text decoration end ====================== */
+
+
+/*================= Background start ==================== */
+.bg-image {
+  background-image: url("/media/default/bg-2.png");
+  background-size: cover;
+}
+.bg-host {
+  background-image: url("/media/default/bg-5.jpg");
+  background-size: cover;
+  height: 100vh;
+  padding: 219px;
+}
+
+/*================= Background end ==================== */
+
+/*=============== button start ================*/
+
+.btn-circle.btn-xl {
+  width: 110px;
+  height: 110px;
+  padding: 10px 16px;
+  border-radius: 55px;
+  font-size: 24px;
+  line-height: 1.33;
+  border: solid 1px;
+  background-color: rgb(15, 112, 36);
+}
+.btn-xl:hover{
+  width: 120px;
+  height: 120px;
+  padding: 20px 26px;
+  border-radius: 59px;
+  border: none;
+  background-color: rgb(15, 155, 46);
+}
+
+.btn-1{ position: fixed; bottom: 10px; left:10px; }
+
+
+.btn-2{ position: fixed; bottom: 10px; right: 10px; }
+
+.round-corner{
+  border-radius: 26px;
+  width: 50%;
+  height: 50px;
+  border: none;
+}
+.qr-btn{
+  margin-left: 40%;
+  margin-right: 40%;
+  width: 210px;
+}
+
+/*=============== button start ================*/

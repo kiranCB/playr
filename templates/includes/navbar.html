@@ -1,0 +1,141 @@
+<nav class="navbar sticky-top navbar-dark bg-transparent shadow">
+  <div class="container-fluid float-sm-right">
+    <a class="navbar-brand" href="{% url 'core:home' %}">
+      <h2 class="m-0">
+        <span>
+          <img src="/media/default/logo-1.png" height="45px" width="32px" />
+        </span>
+        PlayR
+      </h2>
+    </a>
+    <ul class="navbar-nav flex-row ms-auto">
+      <li class="nav-item me-3">
+        <a href="{% url 'user:user_login' %}" class="btn btn-success">
+          Sign In
+        </a>
+      </li>
+      <li class="nav-item me-3">
+        <a href="{% url 'user:user_signup' %}" class="btn btn-primary">
+          Sign Up
+        </a>
+      </li>
+    </ul>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasDarkNavbar"
+      aria-controls="offcanvasDarkNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="offcanvas offcanvas-end text-bg-dark"
+      tabindex="-1"
+      id="offcanvasDarkNavbar"
+      aria-labelledby="offcanvasDarkNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h2 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PlayR</h2>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{% url 'core:home' %}"
+              ><i class="fa fa-fw fa-home"></i> Home</a
+            >
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'core:playlist' %}"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-music-note-list"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"
+                />
+                <path fill-rule="evenodd" d="M12 3v10h-1V3h1z" />
+                <path
+                  d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"
+                />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"
+                />
+              </svg>
+              Playlist</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'core:favourite' %}"
+              ><i class="fa fa-heart" aria-hidden="true"></i> Favourites</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'core:genre' %}"
+              ><i class="fa fa-list"></i> Genre</a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Dropdown
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <a class="dropdown-item" href="{% url 'core:feedback' %}"
+                  >Feedback</a
+                >
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li>
+            <form class="d-flex mt-3" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </li>
+          <a class="nav-link position-absolute bottom-0 start-2" href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="nav-link position-absolute bottom-0 start-50"
+            href="{% url 'core:about_us' %}"
+            >About Us</a
+          >
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
