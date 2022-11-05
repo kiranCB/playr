@@ -1,5 +1,40 @@
-<footer class="m-0">
-    <p class="m-0">All rights reserved &copy;2022 </p>
+<footer class=" container-fluid m-0 pt-5 bg-dark">
+  <div class="text-center text-light">Social Media
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-google"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="{% url 'user:user_login' %}" class="text-white nav-item me-4">Sign In
+    </a>
+    <a class="nav-item text-light me-4" href="{% url 'core:favourite' %}">
+      <i class="text-light fa fa-heart" aria-hidden="true"></i>
+      Favourites
+    </a><a class="nav-link text-light" href="{% url 'core:playlist' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+        height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
+        <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z" />
+        <path fill-rule="evenodd" d="M12 3v10h-1V3h1z" />
+        <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z" />
+        <path fill-rule="evenodd"
+          d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
+      </svg>
+      Playlist</a><a class="nav-item text-light me-4" href="{% url 'core:genre' %}">
+      <i class="text-light fa fa-list"></i>
+      Genre
+    </a>
+    <a href="{% url 'user:user_signup' %}" class="text-white nav-item me-4">Sign Up
+    </a>
+    <a class="nav-link text-white active" aria-current="page" href="{% url 'core:home' %}">
+      <i class="text-white fa fa-fw fa-home"></i>
+      Home</a>
+  </div>
+
+  <p class="text-light text-center m-0">All rights reserved &copy;2022</p>
 </footer>
-
-

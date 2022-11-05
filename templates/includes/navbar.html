@@ -1,7 +1,7 @@
-<nav class="navbar sticky-top navbar-dark bg-transparent shadow">
+<nav class="navbar sticky-top navbar-dark bg-dark shadow">
   <div class="container-fluid float-sm-right">
     <a class="navbar-brand" href="{% url 'core:home' %}">
-      <h2 class="m-0">
+      <h2 class="m-0 poppins">
         <span>
           <img src="/media/default/logo-1.png" height="45px" width="32px" />
         </span>
@@ -36,7 +36,9 @@
       aria-labelledby="offcanvasDarkNavbarLabel"
     >
       <div class="offcanvas-header">
-        <h2 class="offcanvas-title" id="offcanvasDarkNavbarLabel">PlayR</h2>
+        <h2 class="offcanvas-title poppins" id="offcanvasDarkNavbarLabel">
+          PlayR
+        </h2>
         <button
           type="button"
           class="btn-close btn-close-white"
@@ -47,6 +49,15 @@
 
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="{% url 'core:profile' %}"
+            >
+              <i class="fa-regular fa-circle-user"></i> Profile</a
+            >
+          </li>
           <li class="nav-item">
             <a
               class="nav-link active"

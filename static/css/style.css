@@ -3,34 +3,52 @@
 .text-justify {
   text-align: justify;
 }
-a{
+.text-right{
+  text-align:right ;
+}
+a {
   text-decoration: none;
 }
 body {
   font-family: "Basier Square", sans-serif;
-
 }
-.poppins{
-    font-family: 'Poppins', sans-serif;
+.poppins {
+  font-family: "Poppins", sans-serif;
+}
+.rounded{
+  height: 330px;
+}
+footer a:hover{
+  text-decoration: underline;
 }
 /*================= Text decoration end ====================== */
-
 
 /*================= Background start ==================== */
 .bg-image {
   background-image: url("/media/default/bg-2.png");
   background-size: cover;
+  /* Add the blur effect */
+  /* filter: blur(8px); */
+  /* -webkit-filter: blur(8px); */
 }
 .bg-host {
   background-image: url("/media/default/bg-5.jpg");
   background-size: cover;
+  padding-top: 20%;
+
   height: 100vh;
-  padding: 219px;
 }
 
 /*================= Background end ==================== */
 
-/*=============== button start ================*/
+/*=============== Input/button start ================*/
+
+.btn-playr{
+  color: aliceblue;
+}
+.btn-playr:hover{
+  color: rgb(134, 137, 139);
+}
 
 .btn-circle.btn-xl {
   width: 110px;
@@ -42,7 +60,7 @@ body {
   border: solid 1px;
   background-color: rgb(15, 112, 36);
 }
-.btn-xl:hover{
+.btn-xl:hover {
   width: 120px;
   height: 120px;
   padding: 20px 26px;
@@ -51,21 +69,78 @@ body {
   background-color: rgb(15, 155, 46);
 }
 
-.btn-1{ position: fixed; bottom: 10px; left:10px; }
-
-
-.btn-2{ position: fixed; bottom: 10px; right: 10px; }
-
-.round-corner{
-  border-radius: 26px;
-  width: 50%;
-  height: 50px;
-  border: none;
+.btn-1 {
+  position: fixed;
+  bottom: 20px;
+  left: 50px;
 }
-.qr-btn{
+
+.btn-2 {
+  position: fixed;
+  bottom: 20px;
+  right: 50px;
+}
+
+.rnd-btn {
+  border-bottom-right-radius: 12px;
+  border-top-right-radius: 12px;
+  height: 50px;
+}
+
+.qr-btn {
   margin-left: 40%;
   margin-right: 40%;
   width: 210px;
 }
+/* Input */
+.round-corner {
+  border-radius: 26px; 
+  width: 50%;
+  height: 50px;
+  border: none;
+}
+.cust-m {
+  margin-left: 30%;
+}
 
-/*=============== button start ================*/
+/*=============== Input/button start ================*/
+
+/*=============== Color start ================*/
+
+/*=============== Color start ================*/
+
+
+/*=============== Card decoration start ================*/
+                      
+                         /*SignUp  */
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+                  /* Sign in */
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+  }
+  
+  @media (min-width: 1025px) {
+  .h-custom-2 {
+  height: 100%;
+  }
+  }
+
+   /* genre */
+   .genre-card{
+    height: 250px;
+    width: 250px;
+    border-radius: 24px;
+   }
+  /*=============== Card decoration end ==================*/

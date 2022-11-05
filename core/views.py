@@ -7,17 +7,20 @@ from django.views import generic as views
 from core import models as core_models
 from core.forms import FeedbackForm
 
-# home view
-
-
+#============================ Core Views start ====================================#
 class HomeView(views.TemplateView):
     template_name = "core/home.html"
 
 class AboutUsView(views.TemplateView):
     template_name = "core/about_us.html"
-    
 
-# ===========================Feedback Cred start====================================#
+class ProfileView(views.TemplateView):
+    template_name = "core/profile.html"
+    
+#============================ Core Views end ======================================#
+
+
+#===========================Feedback Cred start====================================#
 
 # feedback create view
 class FeedbackCreateView(views.CreateView):

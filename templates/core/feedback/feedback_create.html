@@ -1,10 +1,10 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container py-5">
+<div class="container py-5" style="min-height:100vh ;">
   <div class="row">
     <div class="col-lg-6">
-      <h1>Feedback form</h1>
-      <p class="text-justify">
+      <h1 class="text-light">Feedback form</h1>
+      <p class="text-justify text-light">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nostrum
         dolores alias, nobis laborum obcaecati tempore omnis porro tempora
         impedit labore, quas eum exercitationem dicta. Veritatis iusto
@@ -21,7 +21,6 @@
         quam amet. Voluptatum repudiandae laborum placeat quasi unde corrupti
         nulla qui, fugiat nisi atque omnis sint recusandae ipsum quis eaque ex
         aut quae sed exercitationem!
-        
       </p>
     </div>
     <div class="col-lg-6">
@@ -30,9 +29,9 @@
           <form action="" method="post">
             {% csrf_token %}
             <table>
-                <tbody>
-                    {{form.as_p}}
-                </tbody>
+              <tbody>
+                {{form.as_p}}
+              </tbody>
             </table>
             <button class="btn btn-primary" type="submit">Submit</button>
           </form>
@@ -41,5 +40,5 @@
     </div>
   </div>
 </div>
-
+{% include 'includes/footer.html' %}
 {% endblock content %}
