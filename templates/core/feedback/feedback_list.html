@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block content %}
+{% include 'includes/navbar.html' %}
+<section class="py-5" style="min-height:100vh">
+  <div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-center text-light">Feedback List</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table table-bordered align-middle">
+          <thead class="text-white">
+            <tr class="text-center fw-bold">
+              <th >#</th>
+              <th>Name</th>
+              <th>Subject</th>
+              <th>Last Updated</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="text-white">
+            {% for feedback in feedbacks %}
+
+            <tr >
+              <td class="text-center fw-bold">{{forloop.counter}}</td>
+              <td>{{feedback.name}}</td>
+              <td>{{feedback.subject}}</td>
+              <td>{{feedback.updated_on|date}}</td>
+              <td class="text-center">
+                <a href="{% url 'core:feedback_detail' feedback.id %}" class="btn btn-info">
+                    <i class="fa-solid fa-eye"></i>
+                    Detail
+                </a>
+                <a href="{% url 'core:feedback_update' feedback.id %}" class="btn btn-success">
+                    <i class="fa-solid fa-pen"></i>
+                    Update
+                </a>
+                <a href="{% url 'core:feedback_delete' feedback.id %}" class="btn btn-danger">
+                    <i class="fa-solid fa-trash"></i>
+                    Delete
+                </a>
+              </td>
+            </tr>
+
+            {% empty %}
+            <tr>
+              <td colspan="4">No feedbacks!</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'includes/footer.html' %}
+{% endblock content %}

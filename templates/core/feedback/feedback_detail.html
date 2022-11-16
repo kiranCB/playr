@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block content %}
+{% include 'includes/navbar.html' %}
+<section class="py-5" style="min-height:100vh">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h2 class="text-center">Feedback Detail</h2>
+        <hr />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Name: {{feedback.name}}</h5>
+            <p class="card-text">Subject: {{feedback.subject}}</p>
+            <p class="card-text">Message: {{feedback.message}}</p>
+            <p class="card-text">Last updated: {{feedback.updated_on}}</p>
+            <div>
+              <a href="{% url 'core:feedback_update' feedback.id %}" class="btn btn-success">
+                <i class="fa-solid fa-pen"></i>
+                Update
+              </a>
+              <a href="{% url 'core:feedback_delete' feedback.id %}" class="btn btn-danger">
+                <i class="fa-solid fa-trash"></i>
+                Delete
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% include 'includes/footer.html' %}
+{% endblock content %}

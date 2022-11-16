@@ -19,7 +19,7 @@ class FeedbackModel(models.Model):
 # ===================Music model start=====================#
 
 # Category Model
-class CategoryModel(models.Model):
+class GenreModel(models.Model):
     name=models.CharField(max_length=64)
     parent=models.ForeignKey("self",on_delete=models.SET_NULL, null=True, blank= True)
     status = models.BooleanField(default=True)
@@ -29,26 +29,20 @@ class CategoryModel(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-# Artist Model
-class ArtistModel(models.Model):
-    name=models.CharField(max_length=64)
-    country=models.CharField(max_length=64)
-    # songs=models.
-    parent=models.ForeignKey("self",on_delete=models.SET_NULL, null=True, blank= True)
-    status = models.BooleanField(default=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
+# Language Model
+class LanguageModel(models.Model):
+    name=models.CharField(max_length=64,default="English")
+    def __str__(self) -> str:
         return f"{self.name}"
-
+    
 # Song Model
 class SongModel(models.Model):    
     name=models.CharField(max_length=64)
-    # artist=models.ManyToOneRel(ArtistModel)
-    description=models.TextField(max_length=500)#description
+    description=models.TextField(max_length=500, default="None")#description
     image = models.ImageField(upload_to="product/image/", default="default/default.png")
-    category=models.ManyToManyField(CategoryModel)
+    genre=models.ManyToManyField(GenreModel)
+    
+    language=models.ManyToManyField(LanguageModel)
     status = models.BooleanField(default=True)
     created_on=models.DateField(auto_now_add=True)
     updated_on=models.DateField(auto_now=True)
@@ -56,12 +50,31 @@ class SongModel(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
 
+# Artist Model
+class ArtistModel(models.Model):
+    name=models.CharField(max_length=64)
+    nationality=models.CharField(max_length=64)
+    songs=models.ManyToManyField(SongModel)
+    parent=models.ForeignKey("self",on_delete=models.SET_NULL, null=True, blank= True)
+    status = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.name}"
+
+# Playlist Model
 class PlaylistModel(models.Model):
-    pass
-class GenreModel(models.Model):
-    pass
-class LanguageModel(models.Model):
-    pass
+    name=models.CharField(max_length=64, default=None)
+    description=models.TextField(max_length=500,default="none")#description
+    image = models.ImageField(upload_to="product/image/", default="default/default.png")
+    status = models.BooleanField(default=True)
+    created_on=models.DateField(auto_now_add=True)
+    updated_on=models.DateField(auto_now=True)
+
+    def __str__(self) -> str:
+        return f"{self.name}"
+
 
 
 
@@ -81,12 +94,16 @@ class HostModel(models.Model):
     def __str__(self) -> str:
         return f"{self.name}"
 
-    pass
-
 # Join Model
 
 class JoinModel(models.Model):
-    pass
+    room_name = models.CharField(max_length=64,default=None)
+    password = models.CharField(max_length =20, default=None)
+    accessibility = models.BooleanField(default=True)
+    def __str__(self) -> str:
+        return f"{self.room_name}"
+
+    
 
 # ===================Room Model End=======================#
 

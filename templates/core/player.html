@@ -1,50 +1,94 @@
-{% extends 'base.html' %}{% block content %}
-{% include 'includes/navbar.html' %}
+{% extends 'base.html' %}{% block content %} {% include 'includes/navbar.html'
+%}
 
-<section class="bg-dark text-light" style="height:100vh;">
-    <div class="text-center">
-        <img src="/media/songs/bad-blood.jpg" class=" rounded mt-3" alt="media/default/not_found.jpg">
+<section class="bg-dark text-light" style="height: 100vh">
+  <div class="text-center">
+    <img
+      src="/media/songs/bad-blood.jpg"
+      class="rounded mt-3"
+      alt="media/default/not_found.jpg"
+    />
+  </div>
+  <div class="text-center">
+    <h1 id="song_name">Bad Blood</h1>
+
+    <div class="d-flex justify-content-center">
+      <p class="h3">Artist :</p>
+      <p id="singer" class="h3">Taylor Swift</p>
     </div>
-    <div class="text-center">
-        <p>
-        <h1 id="song_name">Bad Blood</h1>
-        </p>
-        <div class="d-flex justify-content-center">
-            <p class="h3">Artist :</p>
-            <p id="singer" class="h3"> Taylor Swift</p>
-        </div>
-
+  </div>
+  <div class="fixed-bottom mb-3">
+    <div class="m-2 me-4 ms-4">
+      <div class="d-flex justify-content-between">
+        <p id="dur_start">00:01</p>
+        <p id="dur_end">03:12</p>
+      </div>
+      <input type="range" class="form-range" id="customRange1" />
     </div>
-    <div class="fixed-bottom mb-3">
-        <div class="m-2 me-4 ms-4">
-            <div class="d-flex justify-content-between">
-                <p id="dur_start">00:01</p>
-                <p id="dur_end">03:12</p>
-            </div>
-            <input type="range" class="form-range" id="customRange1">
-        </div>
-        <div class="d-flex justify-content-between">
-            <div>
-                <a href="{% url 'core:favourite' %}"><i class="btn-playr m-2 me-5 ms-5 fa-regular fa-heart fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    data-bs-title="favourite"></i></a>
-                <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-shuffle fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    data-bs-title="shuffle"></i>
-
-            </div>
-            <div class="d-flex justify-content-center">
-                <i class="btn-playr fa-solid fa-backward-step fa-3x"></i>
-                <i class="btn-playr me-5 ms-5 fa-regular fa-circle-play fa-4x"></i>
-                <i class="btn-playr fa-solid fa-forward-step fa-3x"></i>
-            </div>
-            <div>
-
-                <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-repeat fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    data-bs-title="repeat"></i>
-                <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-share fa-2x" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                    data-bs-title="share"></i>
-                <a href="{% url 'core:queue' %}"><i class="btn-playr m-2 me-5 ms-5 fa-solid fa-list fa-2x"></i></a>
-            </div>
-        </div>
+    <div class="d-flex justify-content-between">
+      <div>
+        <button class="btn">
+          <a href="{% url 'core:favourite' %}"
+            ><i
+              class="btn-playr m-2 me-5 ms-5 fa-regular fa-heart fa-2x"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              data-bs-title="favourite"
+            ></i
+          ></a>
+        </button>
+        <button class="btn">
+          <i
+            class="btn-playr m-2 me-5 ms-5 fa-solid fa-shuffle fa-2x"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="shuffle"
+          ></i>
+        </button>
+        <button class="btn">
+          <i
+            class="btn-playr m-2 me-5 ms-5 fa-solid fa-volume-xmark fa-2x"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="shuffle"
+          ></i>
+        </button>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button class="btn" id="previous_song">
+          <i class="btn-playr fa-solid fa-backward-step fa-3x"></i>
+        </button>
+        <button class="btn" id="togglePlay">
+          <i class="btn-playr me-5 ms-5 fa-regular fa-circle-play fa-4x"></i>
+        </button>
+        <button class="btn" id="next_song">
+          <i class="btn-playr fa-solid fa-forward-step fa-3x"></i>
+        </button>
+      </div>
+      <div>
+        <button class="btn">
+          <i
+            class="btn-playr m-2 me-5 ms-5 fa-solid fa-repeat fa-2x"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="repeat"
+          ></i>
+        </button>
+        <button class="btn">
+          <i
+            class="btn-playr m-2 me-5 ms-5 fa-solid fa-share fa-2x"
+            data-bs-toggle="tooltip"
+            data-bs-placement="bottom"
+            data-bs-title="share"
+          ></i>
+        </button>
+        <button class="btn">
+          <a href="{% url 'core:queue' %}"
+            ><i class="btn-playr m-2 me-5 ms-5 fa-solid fa-list fa-2x"></i
+          ></a>
+        </button>
+      </div>
     </div>
+  </div>
 </section>
 {% endblock content %}

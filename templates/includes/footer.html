@@ -1,40 +1,159 @@
-<footer class=" container-fluid m-0 pt-5 bg-dark">
-  <div class="text-center text-light">Social Media
-    <a href="#!" class="text-white me-4">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="#!" class="text-white me-4">
-      <i class="fab fa-twitter"></i>
-    </a>
-    <a href="#!" class="text-white me-4">
-      <i class="fab fa-google"></i>
-    </a>
-    <a href="#!" class="text-white me-4">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="{% url 'user:user_login' %}" class="text-white nav-item me-4">Sign In
-    </a>
-    <a class="nav-item text-light me-4" href="{% url 'core:favourite' %}">
-      <i class="text-light fa fa-heart" aria-hidden="true"></i>
-      Favourites
-    </a><a class="nav-link text-light" href="{% url 'core:playlist' %}"><svg xmlns="http://www.w3.org/2000/svg" width="16"
-        height="16" fill="currentColor" class="bi bi-music-note-list" viewBox="0 0 16 16">
-        <path d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z" />
-        <path fill-rule="evenodd" d="M12 3v10h-1V3h1z" />
-        <path d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z" />
-        <path fill-rule="evenodd"
-          d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z" />
-      </svg>
-      Playlist</a><a class="nav-item text-light me-4" href="{% url 'core:genre' %}">
-      <i class="text-light fa fa-list"></i>
-      Genre
-    </a>
-    <a href="{% url 'user:user_signup' %}" class="text-white nav-item me-4">Sign Up
-    </a>
-    <a class="nav-link text-white active" aria-current="page" href="{% url 'core:home' %}">
-      <i class="text-white fa fa-fw fa-home"></i>
-      Home</a>
-  </div>
+<footer class="text-center text-lg-start text-white" style="background-color: #3e4551">
+  <div class="container p-4 pb-0">
+    <section class="">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">FOOTER CONTENT</h5>
 
-  <p class="text-light text-center m-0">All rights reserved &copy;2022</p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+            modi cum ipsam ad, illo possimus laborum ut reiciendis obcaecati.
+            Ducimus, quas. Corrupti, pariatur eaque? Reiciendis assumenda iusto
+            sapiente inventore animi?
+          </p>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Main</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="{% url 'core:home' %}" class="text-light">
+                <i class="fa fa-fw fa-home text-light"></i> Home</a>
+            </li>
+            <li>
+              <a class="text-light" href="{% url 'core:about_us' %}">About Us</a>
+            </li>
+            <li>
+              <a class="text-light" href="#">Privacy Policy</a>
+            </li> 
+                     
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Components</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="nav-link" href="{% url 'core:favourite' %}"><i class="fa fa-heart" aria-hidden="true"></i>
+                Favourites</a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'core:genre' %}"><i class="fa fa-list"></i> Genre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'core:playlist' %}"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  class="bi bi-music-note-list"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2 2.5.895 2.5 2z"
+                  />
+                  <path fill-rule="evenodd" d="M12 3v10h-1V3h1z" />
+                  <path
+                    d="M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1V2.82z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M0 11.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 7H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 .5 3H8a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"
+                  />
+                </svg>
+                Playlist</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Room</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="{% url 'core:join' %}" class="text-white">Host</a>
+            </li>
+            <li>
+              <a href="{% url 'core:host' %}" class="text-white">Join</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase">Feedback</h5>
+
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a class="dropdown-item" href="{% url 'core:feedback_list' %}">
+                Feedbacks</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'core:feedback' %}">
+                Create Feedback</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+
+    <hr class="mb-4" />
+
+    <!-- Section: CTA -->
+    <section class="">
+      <p class="d-flex justify-content-center align-items-center">
+        <span class="me-3">Register for free</span>
+        <a href="{% url 'user:user_signup' %}" class="text-light">
+          <button type="button" class="btn btn-outline-light btn-rounded">
+            Sign up!
+        </button></a>
+      </p>
+    </section>
+    <!-- Section: CTA -->
+
+    <hr class="mb-4" />
+
+    <!-- Section: Social media -->
+    <section class="mb-4 text-center">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+
+      <!-- Twitter -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    © 2022 Copyright:
+  </div>
+  <!-- Copyright -->
 </footer>

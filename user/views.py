@@ -5,8 +5,9 @@ from django.views import generic as views
 from django.contrib.auth import forms as auth_forms
 
 from user import forms as user_form
-from user import models
-# Create your views here.
+from user import models as user_models
+from user.forms import ProfileForm
+# =================== Registration Views Start =========================#
 
 # UserCreateView
 class UserCreateView(views.CreateView):
@@ -46,7 +47,33 @@ class UserLoginView(views.View):
         context = {"form": form}
         return render(request, self.template_name, context)
 class UserLogoutView(views.View):
-    template_name = "registration/logged_out.html"
+    template_name = "registration/logout.html"
     def get(self, request):
         logout(request)
         return render(request, self.template_name)
+
+# =================== Registration Views End =========================#
+
+# ================= Profile View Start ===============================#
+
+class ProfileCreateView(views.CreateView):
+    template_name = "core/profile/profile_create.html"
+    model = user_models.ProfileModel
+    form_class = ProfileForm
+    success_url = reverse_lazy("user:profile_detail")
+
+# feedback updateview
+class ProfileUpdateView(views.UpdateView):
+    template_name = "core/profile/profile_update.html"
+    model = user_models.ProfileModel
+    form_class = ProfileForm
+    success_url = reverse_lazy("user:profile_detail")
+
+    
+
+class ProfileDetailView(views.TemplateView):
+    template_name = "core/profile/profile.html"
+    model = user_models.ProfileModel
+    context_object_name = "profile"
+
+# ================= Profile View end ===============================#

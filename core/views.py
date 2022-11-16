@@ -14,8 +14,7 @@ class HomeView(views.TemplateView):
 class AboutUsView(views.TemplateView):
     template_name = "core/about_us.html"
 
-class ProfileView(views.TemplateView):
-    template_name = "core/profile.html"
+
     
 #============================ Core Views end ======================================#
 
@@ -28,6 +27,31 @@ class FeedbackCreateView(views.CreateView):
     model = core_models.FeedbackModel
     form_class = FeedbackForm
     success_url = reverse_lazy("core:home")
+
+class FeedbackDeleteView(views.DeleteView):
+    template_name = "core/feedback/delete_feedback.html"
+    model = core_models.FeedbackModel
+    success_url = reverse_lazy("core:feedback_list")
+
+class FeedbackUpdateView(views.UpdateView):
+    template_name = "core/feedback/update_feedback.html"
+    model = core_models.FeedbackModel
+    form_class = FeedbackForm
+    success_url = reverse_lazy("core:feedback_list")
+
+class FeedbackListView(views.ListView):
+    template_name = "core/feedback/feedback_list.html"
+    model = core_models.FeedbackModel
+    context_object_name = "feedbacks"
+
+# feedback detailview
+class FeedbackDetailView(views.DetailView):
+    template_name = "core/feedback/feedback_detail.html"
+    model = core_models.FeedbackModel
+    context_object_name = "feedback"
+
+
+
 
 # ===========================Feedback Cred end======================================#
 
@@ -53,6 +77,11 @@ class PlaylistView(views.TemplateView):
 
 class QueueView(views.TemplateView):
     template_name = "core/queue.html"
+
+class GenreDetailView(views.TemplateView):
+    template_name = "core/genredetail.html"
+class PlaylistDetailView(views.TemplateView):
+    template_name = "core/playlistdetail.html"
 
 
 

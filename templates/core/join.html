@@ -1,21 +1,25 @@
 {% extends 'base.html' %}{% block content %}
 <section class="bg-host">
-    <form action="">
-    <div class="row">
-        <a href="{% url 'core:home' %}"><h1 class="text-center text-light fw-bold poppins m-4">PlayR</h1></a>
-        <div class="input-group cust-m m-2">
-            <input class=" text-center " type="text" placeholder="enter room name">
-            <button class="btn btn-outline-secondary"><i class="fa-solid fa-camera"></i></button>
+    <a href="{% url 'core:home' %}">
+        <h1 class="text-center text-light fw-bold poppins m-4">PlayR</h1>
+    </a>
+    <!-- <i class="fa-solid fa-camera"></i> -->
+    <div class="cust-m">
+        <div class="input-group ">
+            <input type="text" class="round-corner cust-w m-2 text-center p-4" placeholder="enter username or email" />
+            <button class="btn btn-outline-secondary m-2 rnd-btn">
+                <i class="fa-solid fa-camera"></i>
+            </button>
         </div>
-        <div class="text-center m-2">
-            <input class=" text-center round-corner" type="text" placeholder="enter password">
-        </div>
-        <div class="text-center m-2">
-            <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
-            <label class="btn btn-outline-danger" for="danger-outlined">Open to All</label>
-            <div class="btn btn-success">Join</div>              
-        </div>
+        <div class="input-group ">
+            <input type="text" class="round-corner cust-w m-2 text-center p-3" placeholder="enter password" />
+            
+        </div>      
     </div>
-    </form>    
+    <div class="text-center m-2">
+        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off" />
+        <label class="btn btn-outline-danger" for="danger-outlined">Open to All</label>
+        <div class="btn btn-success">Join</div>
+    </div>
 </section>
 {% endblock content %}
