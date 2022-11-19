@@ -8,7 +8,7 @@ urlpatterns = [
      path("", views.HomeView.as_view(), name="home"),
      path("about_us/", views.AboutUsView.as_view(), name="about_us"),
      
-     path("player/", views.PlayerView.as_view(), name="player"),
+     path("player/<int:pk>/play/", views.PlayerView.as_view(), name="player"),
      path("favourite/", views.FavouriteView.as_view(), name="favourite"),
      path("playlist/", views.PlaylistView.as_view(), name="playlist"),
      path("queue/", views.QueueView.as_view(), name="queue"),

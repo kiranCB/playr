@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
-
+from django.contrib.messages import constants as messages
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -135,3 +135,38 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Custom setting
 AUTH_USER_MODEL = "user.CustomUser"
+
+# Message Tags
+MESSAGE_TAGS = {
+    messages.INFO: "info",
+    messages.SUCCESS: "success",
+    messages.ERROR: "danger",
+    messages.WARNING: "warning",
+}
+
+# Email Integration
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'sent_mails' # change this to a proper location
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "onlineparking.alwyn@gmail.com"
+EMAIL_HOST_PASSWORD = "1234alwyn007"
+EMAIL_USE_TSL = True
+
+# Google credentials
+GOOGLE_API_KEY = "AIzaSyCUWBrXHWY_mObVlpG1PXruUaNs2MxHJ6U"
+GOOGLE_CLIENT_ID = "724597826498-vni74shcpsuou976m2jf1pu9scaghg9q.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET = "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"
+
+
+# Authentication URLS
+LOGIN_URL = "login"
+LOGOUT_URL = "logout"
+LOGIN_REDIRECT_URL = "core:home"
+LOGOUT_REDIRECT_URL = "logout"
+
+# Razorpay
+RAZORPAY_KEY_ID = "rzp_test_dlkdtnJL7F2D4C"
+RAZORPAY_KEY_SECRET = "D1wF3qTQpMmtU1LpKIFMFezK"

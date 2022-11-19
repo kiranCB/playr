@@ -22,6 +22,7 @@ class FeedbackModel(models.Model):
 class GenreModel(models.Model):
     name=models.CharField(max_length=64)
     parent=models.ForeignKey("self",on_delete=models.SET_NULL, null=True, blank= True)
+    image = models.ImageField(upload_to="genre/image/", default="default/default.png")
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -31,17 +32,21 @@ class GenreModel(models.Model):
 
 # Language Model
 class LanguageModel(models.Model):
-    name=models.CharField(max_length=64,default="English")
-    def __str__(self) -> str:
+    name=models.CharField(max_length=64)
+    status = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
         return f"{self.name}"
     
 # Song Model
 class SongModel(models.Model):    
     name=models.CharField(max_length=64)
     description=models.TextField(max_length=500, default="None")#description
-    image = models.ImageField(upload_to="product/image/", default="default/default.png")
+    image = models.ImageField(upload_to="songs/image/", default="default/default.png")
     genre=models.ManyToManyField(GenreModel)
-    
+    song=models.FileField(upload_to="songs/mp3", default="default/default.png")
     language=models.ManyToManyField(LanguageModel)
     status = models.BooleanField(default=True)
     created_on=models.DateField(auto_now_add=True)
@@ -55,7 +60,7 @@ class ArtistModel(models.Model):
     name=models.CharField(max_length=64)
     nationality=models.CharField(max_length=64)
     songs=models.ManyToManyField(SongModel)
-    parent=models.ForeignKey("self",on_delete=models.SET_NULL, null=True, blank= True)
+    image = models.ImageField(upload_to="songs/artist/", default="default/default.png")
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
@@ -67,13 +72,14 @@ class ArtistModel(models.Model):
 class PlaylistModel(models.Model):
     name=models.CharField(max_length=64, default=None)
     description=models.TextField(max_length=500,default="none")#description
-    image = models.ImageField(upload_to="product/image/", default="default/default.png")
+    image = models.ImageField(upload_to="playlist/image/", default="default/default.png")
     status = models.BooleanField(default=True)
     created_on=models.DateField(auto_now_add=True)
     updated_on=models.DateField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.name}"
+
 
 
 

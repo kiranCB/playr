@@ -1,0 +1,58 @@
+{% extends 'base.html' %}{% block content %}
+<section class="bg-dark text-light" style="min-height: 100vh">
+  <div>
+    <a href="{% url 'core:home' %}">
+      <h1 class="poppins text-center text-white pt-5">PlayR</h1>
+    </a>
+  </div>
+  <div>
+    <h1 class="m-2 poppins ms-5">
+        Kiran's Room<i class="m-2 me-5 mt-2 fa-regular fa-heart"></i>
+      <hr class="text-white me-5">
+    </h1>
+  </div>
+  <div>
+    <h3 class="ms-5 m-3">Now Playing</h3>
+    <div class="card m-3 ms-5 bg-dark" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="/media/songs/bad-blood.jpg" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Bad Blood</h5>
+            <p class="card-text"><i class="fa-regular fa-heart"></i> Artist: Taylor Swift</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <h3 class="ms-5 m-3">Next Playing</h3>
+    <div class="container-fluid">
+      <div class="d-flex ms-5 m-3">
+        <i class="fa-regular fa-heart m-2"></i>
+        <div class="">
+          <h4 class="mb-0">Mercy</h4>
+          <small>Artist: Shawn Mendes</small>
+        </div>
+      </div>
+      <div class="d-flex ms-5 m-3">
+        <i class="fa-regular fa-heart m-2"></i>
+        <div class="">
+          <h4 class="mb-0">Baby</h4>
+          <small>Artist: Justin Beiber</small>
+        </div>
+      </div>
+      <div class="d-flex ms-5 m-3">
+        <i class="fa-regular fa-heart m-2"></i>
+        <div class="">
+          <h4 class="mb-0">Senorita</h4>
+          <small>Artist: Shawn Mendes</small>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</section>
+
+{% include 'includes/footer.html' %} {% endblock content %}

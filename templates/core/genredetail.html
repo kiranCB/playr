@@ -1,18 +1,18 @@
 {% extends 'base.html' %}{% block content %}
 <section class="bg-dark text-light" style="min-height: 100vh">
-<div style="background-image: url('/media/genre/pop.jpg'); ">
-    <div>
-        <a href="{% url 'core:home' %}">
-          <h1 class="poppins text-center text-white pt-5">PlayR</h1>
-        </a>
-      </div>
+  <div style="background-image: url('/media/genre/pop.jpg'); ">
       <div>
-        <h1 class="m-2 poppins ms-5">
-          POP
-          <hr class="text-white me-5">
-        </h1>
-      </div>
-</div>
+          <a href="{% url 'core:home' %}">
+            <h1 class="poppins text-center text-white pt-5">PlayR</h1>
+          </a>
+        </div>
+        <div>
+          <h1 class="m-2 poppins ms-5">
+            POP
+            <hr class="text-white me-5">
+          </h1>
+        </div>
+  </div>
   <div>    
     <div class="container-fluid">
       <div class="d-flex ms-5 m-3">
@@ -38,8 +38,7 @@
       </div>
       
     </div>
-
-  </div>
+  </div>  
 </section>
 
 {% include 'includes/footer.html' %} {% endblock content %}
