@@ -1,3 +1,17 @@
+// player
+
+
+
+
+
+
+
+
+
+
+
+
+
 // slick
 
 $(document).ready(function(){
@@ -106,3 +120,5 @@ function fasterPreview( uploader ) {
 $("#imageUpload").change(function(){
   fasterPreview( this );
 });
+
+

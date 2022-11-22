@@ -19,11 +19,15 @@
       {% endfor %}
     </div>
   </div>
+  <audio controls>
+    <source src="{{song.song.url}}" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
   <div class="fixed-bottom mb-3">
     <div class="m-2 me-4 ms-4">
       <div class="d-flex justify-content-between">
-        <p id="dur_start">00:01</p>
-        <p id="dur_end">03:12</p>
+        <p id="dur_start">{{song.length}}</p>
+        <p id="dur_end">{{song.length}}</p>
       </div>
       <input type="range" class="form-range" id="customRange1" />
     </div>
