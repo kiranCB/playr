@@ -151,8 +151,8 @@ EMAIL_FILE_PATH = 'sent_mails' # change this to a proper location
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "onlineparking.alwyn@gmail.com"
-EMAIL_HOST_PASSWORD = "1234alwyn007"
+EMAIL_HOST_USER = "playr.kiran@gmail.com"
+EMAIL_HOST_PASSWORD = "Lalitha@888"
 EMAIL_USE_TSL = True
 
 # Google credentials

@@ -1,3 +1,16 @@
+/*================= Audio decoration start ==================== */
+
+/* audio */
+audio{
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+
+
+/*================= audio decoration end ==================== */
+
 /*================= Text decoration start ==================== */
 
 .text-justify {
@@ -42,7 +55,7 @@ footer a:hover{
 
 /*================= Background end ==================== */
 
-/*=============== Input/button start ================*/
+/*================= Input/button start ================ */
 
 .btn-playr{
   color: aliceblue;
@@ -106,7 +119,7 @@ footer a:hover{
 .cust-w{
   width: 50%;
 }
-/*=============== Input/button start ================*/
+/*================ Input/button end ================= */
 
 /*=============== Color start ================*/
 
@@ -147,6 +160,7 @@ footer a:hover{
     border-radius: 24px;
    }
   /*=============== Card decoration end ==================*/
+  
   /*=============== Profile Image style ==================*/
   #imageUpload
   {
@@ -170,4 +184,4 @@ footer a:hover{
       width: 150px;
       height: 150px;
   }
-  
+ 

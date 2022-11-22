@@ -1,5 +1,5 @@
-{% extends 'base.html' %}{% block content %} {% include 'includes/navbar.html'
-%}
+{% extends 'base.html' %}{% block content %} 
+{% include 'includes/navbar.html' %}
 
 <section class="bg-dark text-light" style="height: 100vh">
   <div class="text-center">
@@ -22,12 +22,12 @@
   <audio controls>
     <source src="{{song.song.url}}" type="audio/mpeg">
     Your browser does not support the audio element.
-</audio>
+  </audio>
   <div class="fixed-bottom mb-3">
     <div class="m-2 me-4 ms-4">
       <div class="d-flex justify-content-between">
-        <p id="dur_start">{{song.length}}</p>
-        <p id="dur_end">{{song.length}}</p>
+        <p id="dur_start" class="text-light">{{song.song.duration}}</p>
+        <p id="dur_end" class="text-light">{{song.duration}}</p>
       </div>
       <input type="range" class="form-range" id="customRange1" />
     </div>
@@ -60,13 +60,13 @@
         </button>
       </div>
       <div class="d-flex justify-content-center">
-        <button class="btn" id="previous_song">
+        <button class="btn" id="prev">
           <i class="btn-playr fa-solid fa-backward-step fa-3x"></i>
         </button>
-        <button class="btn" id="togglePlay">
+        <button class="btn" id="player-button">
           <i class="btn-playr me-5 ms-5 fa-regular fa-circle-play fa-4x"></i>
         </button>
-        <button class="btn" id="next_song">
+        <button class="btn" id="next">
           <i class="btn-playr fa-solid fa-forward-step fa-3x"></i>
         </button>
       </div>
