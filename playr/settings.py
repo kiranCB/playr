@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-bzj@ct3xoboti-10sb4(zya^hhi*ouz9v#zs@7gokwf&+j658l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "www.ekart.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "www.ekart.com", "*"]
 
 
 
@@ -170,3 +170,6 @@ LOGOUT_REDIRECT_URL = "logout"
 # Razorpay
 RAZORPAY_KEY_ID = "rzp_test_dlkdtnJL7F2D4C"
 RAZORPAY_KEY_SECRET = "D1wF3qTQpMmtU1LpKIFMFezK"
+
+# CORS
+CORS_ORIGIN_ALLOW_ALL = True 

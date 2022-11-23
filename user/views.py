@@ -7,6 +7,12 @@ from django.contrib.auth import forms as auth_forms
 from user import forms as user_form
 from user import models as user_models
 from user.forms import ProfileForm
+
+
+from django.conf import settings
+from django.core.mail import send_mail
+from django.contrib import messages
+from user.forms import UserRegisterform
 # =================== Registration Views Start =========================#
 
 # UserCreateView
@@ -42,10 +48,10 @@ class UserLoginView(views.View):
             return redirect(self.success_url)
         print("USER is not valid.............")
         print("FORM is not valid.............")
-    
-
         context = {"form": form}
         return render(request, self.template_name, context)
+    
+
 class UserLogoutView(views.View):
     template_name = "registration/logout.html"
     def get(self, request):

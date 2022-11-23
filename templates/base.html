@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- styles -->
+    {% block styles %}
     {% include 'includes/styles.html' %}
+    {% endblock styles %}
+
     <title>PlayR| {{page_name}}</title>
     <link rel="icon" type="image/x-icon" href="media/favicon.ico" />
   </head>
@@ -17,8 +20,9 @@
       {% block content %}{% endblock %} 
       
     </div>
-    
-    <!-- scripts -->
+    {% block scripts %}
     {% include 'includes/scripts.html' %}
+    {% endblock %}
+    <!-- scripts -->
   </body>
 </html>

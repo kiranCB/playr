@@ -15,7 +15,7 @@ urlpatterns = [
      path("host/", views.HostView.as_view(), name="host"),
      path("join/", views.JoinView.as_view(), name="join"),
      path("genre/", views.GenreView.as_view(), name="genre"),
-     path("genre/detail", views.GenreDetailView.as_view(), name="genre_detail"),
+     path("genre/<int:pk>/detail", views.GenreDetailView.as_view(), name="genre_detail"),
      path("playlist/detail", views.PlaylistDetailView.as_view(), name="playlist_detail"),
      # feedback url
      path("feedback/create", views.FeedbackCreateView.as_view(), name="feedback"),
@@ -23,5 +23,5 @@ urlpatterns = [
      path("feedback/<int:pk>/detail/",views.FeedbackDetailView.as_view(),name="feedback_detail"),
      path("feedback/<int:pk>/update/",views.FeedbackUpdateView.as_view(),name="feedback_update"),
      path("feedback/<int:pk>/delete/",views.FeedbackDeleteView.as_view(),name="feedback_delete"),
-    
+     path("api/song/", views.SongsAPIView.as_view(), name="api_song")
 ]
