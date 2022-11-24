@@ -37,6 +37,7 @@ $(document).ready(function () {
     ],
   });
 });
+// tooltip
 
 const tooltipTriggerList = document.querySelectorAll(
   '[data-bs-toggle="tooltip"]'
@@ -46,6 +47,7 @@ const tooltipList = [...tooltipTriggerList].map(
 );
 
 // form design
+
 const forms = document.getElementsByTagName("form");
 
 if (forms) {
@@ -130,5 +132,23 @@ function toggleAudio() {
   } else {
     audio.pause();
     playerButton.innerHTML = playIcon;
+  }
+};
+
+// add and remove favourite
+
+const favouritebutton = document.querySelector("#addtofav");
+audio = document.querySelector("audio");
+unfavouriteIcon = `<i class="fa-regular fa-heart"></i>`;
+unfavouriteIcon = `<i class="fa-solid fa-heart"></i>`;
+favouritebutton.addEventListener("click", togglefav());
+
+function togglefav() {
+  if (audio.isFavourite) {
+    audio.isnotFavourite();
+    favouritebutton.innerHTML = unfavouriteIcon;
+  } else {
+    audio.isFavourite();
+    favouritebutton.innerHTML = unfavouriteIcon;
   }
 };

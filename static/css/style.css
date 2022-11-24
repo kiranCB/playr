@@ -6,6 +6,9 @@ audio{
   padding-left: 20px;
   width: 100%;
 }
+.favourite{
+  text-decoration:none;
+}
 
 
 
@@ -120,11 +123,6 @@ footer a:hover{
   width: 50%;
 }
 /*================ Input/button end ================= */
-
-/*=============== Color start ================*/
-
-/*=============== Color end ================*/
-
 
 /*=============== Card decoration start ================*/
                       

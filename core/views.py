@@ -130,32 +130,35 @@ class GenreDetailView(views.DetailView):
     extra_context = {
         "songs": core_models.SongModel.objects.all(),
     }
+class PlaylistView(views.ListView):
+    template_name = "core/playlist.html"
 
+class PlaylistDetailView(views.DetailView):
+    template_name = "core/playlistdetail.html"
+
+
+class QueueView(views.DetailView):
+    template_name = "core/queue.html"
+    model = core_models.SongModel
+    context_object_name = "song"
+
+
+
+
+
+# ===========================Song Cred End======================================#
+
+
+# ===========================Room Views Start===================================#
 
 class HostView(views.TemplateView):
     template_name = "core/room/host.html"
     
-
-
 class JoinView(views.TemplateView):
     template_name = "core/room/join.html"
 
+# ===========================Room Views End=====================================#
 
-class PlaylistView(views.TemplateView):
-    template_name = "core/playlist.html"
-
-
-class QueueView(views.TemplateView):
-    template_name = "core/queue.html"
-
-
-
-
-class PlaylistDetailView(views.TemplateView):
-    template_name = "core/playlistdetail.html"
-
-
-# ===========================Song Cred End======================================#
 
 # ===========================Subscription Start=================================#
 

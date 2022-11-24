@@ -17,9 +17,9 @@
     <div class="card m-3 ms-5 bg-dark" style="max-width: 540px">
       <div class="row g-0">
         <div class="col-md-4">
-          <a href="{% url 'core:player' %}">
+          <a href="#">
             <img
-              src="/media/songs/bad-blood.jpg"
+              src="{{song.image.url}}"
               class="img-fluid rounded-start"
               alt="..."
             />
@@ -27,10 +27,10 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <a href="{% url 'core:player' %}">
-              <h5 class="card-title text-light">Bad Blood</h5>
+            <a href="#">
+              <h5 class="card-title text-light">{{song.name}}</h5>
             </a>
-            <p class="card-text">Artist: Taylor Swift</p>
+            <p class="card-text">{{song.description}}</p>
           </div>
         </div>
       </div>
