@@ -28,30 +28,23 @@
     </div>
     <div class="d-flex justify-content-between">
       <div>
-        <button class="btn" id="addtofav">
-          <i
-              class="btn-playr m-2 me-5 ms-5 fa-regular fa-heart fa-2x"
-              data-bs-toggle="tooltip"
-              data-bs-placement="bottom"
-              data-bs-title="favourite"
-            ></i
-          >
+        <button class="btn" id="addtofav" data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-bs-title="favourite">
+          <i class="btn-playr m-2 me-5 ms-5 fa-regular fa-heart fa-2x">
+          </i>
         </button>
-        <button class="btn">
-          <i
-            class="btn-playr m-2 me-5 ms-5 fa-solid fa-shuffle fa-2x"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            data-bs-title="shuffle"
-          ></i>
+        <button class="btn" data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-bs-title="shuffle">
+        <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-shuffle fa-2x">
+        </i>
         </button>
-        <button class="btn">
-          <i
-            class="btn-playr m-2 me-5 ms-5 fa-solid fa-list-check fa-2x"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            data-bs-title="shuffle"
-          ></i>
+        <button class="btn" data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-bs-title="add to playlist">
+        <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-list-check fa-2x">
+        </i>
         </button>
       </div>
       <div class="d-flex justify-content-center">
@@ -59,33 +52,34 @@
           <i class="btn-playr fa-solid fa-backward-step fa-3x"></i>
         </button>
         <button class="btn" id="player-button">
-          <i class="btn-playr me-5 ms-5 fa-regular fa-circle-play fa-4x"></i>
+          <i class="btn-playr fa-regular fa-circle-play fa-3x"></i>
         </button>
         <button class="btn" id="next">
           <i class="btn-playr fa-solid fa-forward-step fa-3x"></i>
         </button>
       </div>
       <div>
-        <button class="btn">
-          <i
-            class="btn-playr m-2 me-5 ms-5 fa-solid fa-repeat fa-2x"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            data-bs-title="repeat"
-          ></i>
+        <button class="btn" data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-bs-title="repeat">
+        <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-repeat fa-2x">
+
+        </i>
         </button>
-        <button class="btn">
-          <i
-            class="btn-playr m-2 me-5 ms-5 fa-solid fa-share fa-2x"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            data-bs-title="share"
-          ></i>
+        <button class="btn" data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-bs-title="share">
+        <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-share fa-2x">
+
+        </i>
         </button>
-        <button class="btn">
-          <a href="{% url 'core:queue' song.id %}"
-            ><i class="btn-playr m-2 me-5 ms-5 fa-solid fa-list fa-2x"></i
-          ></a>
+        <button class="btn" data-bs-toggle="tooltip"
+        data-bs-placement="bottom"
+        data-bs-title="queue">
+          <a href="{% url 'core:queue' song.id %}">
+            <i class="btn-playr m-2 me-5 ms-5 fa-solid fa-list fa-2x">
+            </i>
+          </a>
         </button>
       </div>
     </div>

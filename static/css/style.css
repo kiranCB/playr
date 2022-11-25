@@ -32,9 +32,6 @@ body {
 .poppins {
   font-family: "Poppins", sans-serif;
 }
-.rounded{
-  height: 330px;
-}
 footer a:hover{
   text-decoration: underline;
 }
@@ -62,6 +59,9 @@ footer a:hover{
 
 .btn-playr{
   color: aliceblue;
+}
+.btn-fav{
+  color:aliceblue;
 }
 .btn-playr:hover{
   color: rgb(134, 137, 139);
@@ -151,6 +151,7 @@ footer a:hover{
   }
   }
 
+  
    /* genre */
    .genre-card{
     height: 250px;
@@ -159,7 +160,21 @@ footer a:hover{
    }
   /*=============== Card decoration end ==================*/
   
-  /*=============== Profile Image style ==================*/
+  /*===============Image style Start =====================*/
+
+  /* player Display Image */
+
+  .rounded{
+    height: 200px;
+  }
+  @media (min-width: 576px) {
+    .rounded{
+      height: 330px;
+    }
+    
+    }
+
+  /* Profile Image */
   #imageUpload
   {
       display: none;
@@ -182,4 +197,6 @@ footer a:hover{
       width: 150px;
       height: 150px;
   }
+ 
+/*================ Image style End ======================*/
  

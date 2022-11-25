@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from django.conf import settings
 
-USER = get_user_model()
+USER = settings.AUTH_USER_MODEL
 
 #Feedback model
 class FeedbackModel(models.Model):
@@ -21,7 +21,6 @@ class FeedbackModel(models.Model):
 # Category Model
 class GenreModel(models.Model):
     name=models.CharField(max_length=64)
-    parent=models.ForeignKey("self",on_delete=models.SET_NULL, null=True, blank= True)
     image = models.ImageField(upload_to="genre/image/", default="default/default.png")
     status = models.BooleanField(default=True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -73,13 +72,38 @@ class PlaylistModel(models.Model):
     name=models.CharField(max_length=64, default=None)
     description=models.TextField(max_length=500,default="none")#description
     image = models.ImageField(upload_to="playlist/image/", default="default/default.png")
+    user = models.ForeignKey(USER,on_delete=models.SET_NULL, null=True, blank= True)
     status = models.BooleanField(default=True)
     created_on=models.DateField(auto_now_add=True)
     updated_on=models.DateField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.name}"
+class FavouriteModel(models.Model):
+    user = models.ForeignKey(USER,on_delete=models.SET_NULL, null=True, blank= True)
+    status = models.BooleanField(default=True)
+    created_on=models.DateField(auto_now_add=True)
+    updated_on=models.DateField(auto_now=True)
 
+    def songs(self):
+        favourite_songs = FavouriteSongModel.objects.filter(
+            favourite=self,
+            status=True,
+        )
+        return favourite_songs
+
+    def __str__(self):
+        return f"{self.user}"
+
+class FavouriteSongModel(models.Model):
+    favourite = models.ForeignKey(FavouriteModel, on_delete=models.CASCADE)
+    song = models.ForeignKey(SongModel, on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.song}"
 
 
 

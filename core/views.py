@@ -18,8 +18,8 @@ class HomeView(views.TemplateView):
     template_name = "core/home.html"
     extra_context = {
         "songs": core_models.SongModel.objects.all(),
-        "artists":core_models.ArtistModel.objects.all(),
-        "genres":core_models.GenreModel.objects.all(),
+        "artists": core_models.ArtistModel.objects.all(),
+        "genres": core_models.GenreModel.objects.all(),
     }
 
     # def get_context_data(self, **kwargs) :
@@ -46,7 +46,7 @@ class FeedbackCreateView(views.CreateView):
     success_url = reverse_lazy("core:home")
 
     def form_valid(self, form):
-        response =  super().form_valid(form)
+        response = super().form_valid(form)
         # send mail
         try:
             data = form.cleaned_data
@@ -76,6 +76,7 @@ class FeedbackCreateView(views.CreateView):
             return redirect(self.success_url)
         return response
 
+
 class FeedbackDeleteView(views.DeleteView):
     template_name = "core/feedback/delete_feedback.html"
     model = core_models.FeedbackModel
@@ -95,7 +96,6 @@ class FeedbackListView(views.ListView):
     context_object_name = "feedbacks"
 
 
-# feedback detailview
 class FeedbackDetailView(views.DetailView):
     template_name = "core/feedback/feedback_detail.html"
     model = core_models.FeedbackModel
@@ -105,24 +105,19 @@ class FeedbackDetailView(views.DetailView):
 # ===========================Feedback Cred end======================================#
 
 # ===========================Song Cred Start======================================#
-
-
 class PlayerView(views.DetailView):
     template_name = "core/player.html"
     model = core_models.SongModel
     context_object_name = "song"
-    
-
-
-class FavouriteView(views.TemplateView):
-    template_name = "core/favourites.html"
 
 
 class GenreView(views.TemplateView):
     template_name = "core/genre.html"
     extra_context = {
-        "genres":core_models.GenreModel.objects.all(),
+        "genres": core_models.GenreModel.objects.all(),
     }
+
+
 class GenreDetailView(views.DetailView):
     template_name = "core/genredetail.html"
     model = core_models.GenreModel
@@ -130,8 +125,11 @@ class GenreDetailView(views.DetailView):
     extra_context = {
         "songs": core_models.SongModel.objects.all(),
     }
+
+
 class PlaylistView(views.ListView):
     template_name = "core/playlist.html"
+
 
 class PlaylistDetailView(views.DetailView):
     template_name = "core/playlistdetail.html"
@@ -143,7 +141,27 @@ class QueueView(views.DetailView):
     context_object_name = "song"
 
 
+class FavouriteView(views.TemplateView):
+    template_name = "core/favourites.html"
+class AddToFavouriteView(views.View):
+    def get(self, request, pk):
+        # try:
+        user = request.user
+        song = core_models.FavouriteModel.objects.get(id=pk)
+        favourite = core_models.FavouriteModel.objects.get_or_create(
+            user=user
+        )
+        favourite_song, cart_item_created = core_models.FavouriteSongModel.objects.get_or_create(
+            favourite=favourite, song=song
+        )
 
+        favourite_song.save()
+        messages.success(request, "Product added successfully!")
+        # except Exception as e:
+        #     print(e)
+        #     messages.error(request, f"Product couldn't add! ERROR:-{e}")
+        url = request.META.get("HTTP_REFERER")
+        return redirect(url)
 
 
 # ===========================Song Cred End======================================#
@@ -151,16 +169,37 @@ class QueueView(views.DetailView):
 
 # ===========================Room Views Start===================================#
 
+
 class HostView(views.TemplateView):
     template_name = "core/room/host.html"
-    
+
+
 class JoinView(views.TemplateView):
     template_name = "core/room/join.html"
+
 
 # ===========================Room Views End=====================================#
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ===========================Subscription Start=================================#
+
 
 class PaymentView(views.View):
     def get(self, request):
@@ -176,9 +215,10 @@ class PaymentView(views.View):
 # ===========================Subscription End====================================#
 
 
+# ===========================Song Api End====================================#
 class SongsAPIView(views.View):
     model = core_models.SongModel
-    
+
     def get(self, request, *args, **kwargs):
         data = self.get_context_data()["songs"]
         songs = self.model.objects.filter().order_by("-name")
@@ -189,8 +229,5 @@ class SongsAPIView(views.View):
 
     def get_context_data(self):
         songs = self.model.objects.filter().order_by("-name")
-        context = {
-            "songs" : songs
-        }
+        context = {"songs": songs}
         return context
-

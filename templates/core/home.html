@@ -1,17 +1,15 @@
-{% extends 'base.html' %}{% block content %}
-{% include 'includes/navbar.html' %}
+{% extends 'base.html' %}{% block content %} {% include 'includes/navbar.html' %}
 
 <!-- ===================== card horizontal slick start======================== -->
 
 <!-- most played songs -->
 <section class="mt-0 bg-dark">
-  <div >    
+  <div>
     <p class="h1 mt-0 p-3 text-light">Most Listened Songs</p>
     <div class="container">
       <div class="responsive">
         {% for song in songs %}
         <div class="">
-
           <div class="card mx-3">
             <img
               style="height: 250px"
@@ -22,7 +20,17 @@
             <div class="card-body">
               <h5 class="card-title">{{song.name}}</h5>
               <p class="card-text" style="height: 30px">{{song.description}}</p>
-              <a href="{% url 'core:player' song.id %}" class="btn btn-primary">Listen now</a>
+              <p>
+                <a
+                  href="{% url 'core:player' song.id %}"
+                  class="btn btn-primary"
+                >
+                  Listen now
+                </a>
+                <span id="addtoque" class="btn" data-bs-toggle="tooltip" data-bs-title="Add to queue"><?xml version="1.0" ?><svg height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M28 20H4v4h24v-4zm0-8H4v4h24v-4zm8 16v-8h-4v8h-8v4h8v8h4v-8h8v-4h-8zM4 32h16v-4H4v4z"/></svg>
+                </span>
+
+              </p>
             </div>
           </div>
         </div>
@@ -39,7 +47,7 @@
     <div class="container">
       <div class="responsive">
         {% for song in genre.songmodel_set.all %}
-        
+
         <div class="">
           <div class="card mx-3">
             <img
@@ -50,10 +58,14 @@
             <div class="card-body">
               <h5 class="card-title">{{song.name}}</h5>
               <p class="card-text" style="height: 30px">{{song.description}}</p>
-              <a href="{% url 'core:player' song.id %}" class="btn btn-primary">Listen now</a>
+              <a href="{% url 'core:player' song.id %}" class="btn btn-primary"
+                >Listen now</a
+              >
+              <span id="addtoque" class="btn" data-bs-toggle="tooltip" data-bs-title="Add to queue"><?xml version="1.0" ?><svg height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M28 20H4v4h24v-4zm0-8H4v4h24v-4zm8 16v-8h-4v8h-8v4h8v8h4v-8h8v-4h-8zM4 32h16v-4H4v4z"/></svg>
+              </span>
             </div>
           </div>
-        </div>        
+        </div>
         {% endfor %}
       </div>
     </div>
@@ -69,7 +81,7 @@
     <div class="container">
       <div class="responsive">
         {% for song in artist.songs.all %}
-        
+
         <div class="">
           <div class="card mx-3">
             <img
@@ -81,22 +93,40 @@
             <div class="card-body">
               <h5 class="card-title">{{song.name}}</h5>
               <p class="card-text" style="height: 30px">{{artist.name}}</p>
-              <a href="{% url 'core:player' song.id %}" class="btn btn-primary">Listen now</a>
+              <p>                
+                <a 
+                href="{% url 'core:player' song.id %}" 
+                class="btn btn-primary">
+                Listen now
+              </a>
+              <span id="addtoque" class="btn" data-bs-toggle="tooltip" data-bs-title="Add to queue"><?xml version="1.0" ?><svg height="32" viewBox="0 0 48 48" width="32" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h48v48H0z" fill="none"/><path d="M28 20H4v4h24v-4zm0-8H4v4h24v-4zm8 16v-8h-4v8h-8v4h8v8h4v-8h8v-4h-8zM4 32h16v-4H4v4z"/></svg>
+              </span>
+              </p>
             </div>
           </div>
         </div>
         {% endfor %}
-        
       </div>
     </div>
     {% endfor %}
   </div>
-  <a href="{% url 'core:join' %}"><button type="button" class="text-light btn btn-1 fs-2 fw-semibold btn-default btn-circle btn-xl">Join
-  </button></a>
-  <a href="{% url 'core:host' %}"><button type="button" class="btn btn-2 text-light fs-2 fw-semibold btn-default btn-circle btn-xl">Host
-  </button></a>
+  <a href="{% url 'core:join' %}"
+    ><button
+      type="button"
+      class="text-light btn btn-1 fs-2 fw-semibold btn-default btn-circle btn-xl"
+    >
+      Join
+    </button></a
+  >
+  <a href="{% url 'core:host' %}"
+    ><button
+      type="button"
+      class="btn btn-2 text-light fs-2 fw-semibold btn-default btn-circle btn-xl"
+    >
+      Host
+    </button></a
+  >
 </section>
 
 <!-- ===================== card horizontal slick end======================== -->
-{% include 'includes/footer.html' %}
-{% endblock content %}
+{% include 'includes/footer.html' %} {% endblock content %}

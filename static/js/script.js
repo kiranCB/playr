@@ -1,5 +1,28 @@
-// slick
+// player btn size
+$(window).resize(function(){
+  console.log('resize called');
+  var width = $(window).width();
+  if(width < 765){
+      $('.btn-playr').removeClass('fa-2x');
+  }
+  if(width >576){
+    $('.btn-playr').addClass('fa-2x');
+  }
+})
+.resize();
 
+// hide host 
+
+$(window).scroll(function(){
+  if ($(this).scrollTop() > 50) {
+     $('#dynamic').addClass('newClass');
+  } else {
+     $('#dynamic').removeClass('newClass');
+  }
+});
+
+
+// slick
 $(document).ready(function () {
   $(".responsive").slick({
     dots: true,
@@ -27,8 +50,8 @@ $(document).ready(function () {
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
+          slidesToShow: 2,
+          slidesToScroll: 2,
         },
       },
       // You can unslick at a given breakpoint now by adding:
