@@ -35,6 +35,7 @@
     </div>
     <h3 class="ms-5 m-3">Next Playing</h3>
     <div class="container-fluid">
+      {% for favourite in favourites %}
       <div class="d-flex ms-5 m-3">
         <p data-bs-toggle="tooltip"
         data-bs-placement="bottom"
@@ -42,11 +43,14 @@
           <i class="btn btn-fav fa-regular fa-heart m-2" >
           </i>
         </p>
-        <div class="">
-          <h4 class="mb-0">Mercy</h4>
-          <small>Artist: Shawn Mendes</small>
-        </div>
-      </div>      
+        <a href="{% url 'core:player' favourite.song.id %}" class="text-light">
+          <div class="">
+            <h4 class="mb-0">{{favourite.song.name}}</h4>
+            <small>{{favourite.song.description}}</small>
+          </div>
+        </a>
+      </div> 
+      {% endfor %}     
     </div>
   </div>
 </section>

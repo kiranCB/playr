@@ -9,7 +9,6 @@ urlpatterns = [
      path("about_us/", views.AboutUsView.as_view(), name="about_us"),
      
      path("player/<int:pk>/play/", views.PlayerView.as_view(), name="player"),
-     path("favourite/", views.FavouriteView.as_view(), name="favourite"),
      path("playlist/", views.PlaylistView.as_view(), name="playlist"),
      path("queue/<int:pk>/queue", views.QueueView.as_view(), name="queue"),
      path("host/", views.HostView.as_view(), name="host"),
@@ -23,5 +22,8 @@ urlpatterns = [
      path("feedback/<int:pk>/detail/",views.FeedbackDetailView.as_view(),name="feedback_detail"),
      path("feedback/<int:pk>/update/",views.FeedbackUpdateView.as_view(),name="feedback_update"),
      path("feedback/<int:pk>/delete/",views.FeedbackDeleteView.as_view(),name="feedback_delete"),
-     path("api/song/", views.SongsAPIView.as_view(), name="api_song")
+     path("api/song/", views.SongsAPIView.as_view(), name="api_song"),
+       # favourite
+     path("favourite/", views.FavouriteView.as_view(), name="favourite"),
+     path("song/<int:pk>/add/", views.AddToFavouriteView.as_view(), name="add_to_favorite"),
 ]

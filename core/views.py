@@ -16,17 +16,20 @@ from django.core.serializers import json
 # ============================ Core Views start ====================================#
 class HomeView(views.TemplateView):
     template_name = "core/home.html"
-    extra_context = {
-        "songs": core_models.SongModel.objects.all(),
-        "artists": core_models.ArtistModel.objects.all(),
-        "genres": core_models.GenreModel.objects.all(),
-    }
 
-    # def get_context_data(self, **kwargs) :
-    #     context = super().get_context_data(**kwargs)
-    #     songs = core_models.SongModel.objects.all()
-    #     context.update({"songs":songs})
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update(
+            {
+                "songs": core_models.SongModel.objects.all(),
+                "artists": core_models.ArtistModel.objects.all(),
+                "genres": core_models.GenreModel.objects.all(),
+                "favorite_lists": core_models.FavouriteListModel.objects.filter(
+                    user=self.request.user
+                ),
+            }
+        )
+        return context
 
 
 class AboutUsView(views.TemplateView):
@@ -141,26 +144,25 @@ class QueueView(views.DetailView):
     context_object_name = "song"
 
 
-class FavouriteView(views.TemplateView):
+class FavouriteView(views.ListView):
     template_name = "core/favourites.html"
-class AddToFavouriteView(views.View):
-    def get(self, request, pk):
-        # try:
-        user = request.user
-        song = core_models.FavouriteModel.objects.get(id=pk)
-        favourite = core_models.FavouriteModel.objects.get_or_create(
-            user=user
-        )
-        favourite_song, cart_item_created = core_models.FavouriteSongModel.objects.get_or_create(
-            favourite=favourite, song=song
-        )
+    model = core_models.FavouriteItemModel
+    context_object_name = "favourites"
 
-        favourite_song.save()
-        messages.success(request, "Product added successfully!")
-        # except Exception as e:
-        #     print(e)
-        #     messages.error(request, f"Product couldn't add! ERROR:-{e}")
-        url = request.META.get("HTTP_REFERER")
+
+class AddToFavouriteView(views.View):
+    def post(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        song = core_models.SongModel.objects.get(id=pk)
+        favourite_list_id = request.POST.get("favorite_list")
+        favourite_list = core_models.FavouriteListModel.objects.get(
+            id=favourite_list_id
+        )
+        favorite_item, created = core_models.FavouriteItemModel.objects.get_or_create(
+            favourite_list=favourite_list,
+            song=song,
+        )
+        url = request.META.get("HTTP_REFERER", "/")
         return redirect(url)
 
 
@@ -179,23 +181,6 @@ class JoinView(views.TemplateView):
 
 
 # ===========================Room Views End=====================================#
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # ===========================Subscription Start=================================#
