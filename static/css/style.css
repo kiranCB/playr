@@ -38,6 +38,11 @@ footer a:hover{
 /*================= Text decoration end ====================== */
 
 /*================= Background start ==================== */
+header{
+  background-color: rgb(29, 117, 222);
+  width: 100vw;
+}
+
 .bg-image {
   background-image: url("/media/default/bg-2.png");
   background-size: cover;
@@ -109,6 +114,11 @@ footer a:hover{
   border-top-right-radius: 12px;
   height: 50px;
 }
+.rnd-btn1 {
+  border-radius: 28px;
+  height: 50px;
+}
+
 /* Input */
 .round-corner {
   border-radius: 26px;   

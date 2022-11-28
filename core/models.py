@@ -124,3 +124,27 @@ class JoinModel(TimeStamp, models.Model):
 
 
 # ===================Room Model End=======================#
+class Payment(TimeStamp, models.Model):
+    class PaymentStatusChoices:
+        pending = "pending"
+        completed = "completed"
+        failed = "failed"
+
+    PAYMENT_STATUS_CHOICES = (
+        ("Pending", PaymentStatusChoices.pending),
+        ("Completed", PaymentStatusChoices.completed),
+        ("Failed", PaymentStatusChoices.failed),
+    )
+    status = models.CharField(
+        max_length=16,
+        choices=PAYMENT_STATUS_CHOICES,
+        default=PaymentStatusChoices.pending,
+    )
+    mode = models.CharField(max_length=50, null=True, blank=True)
+    razorpay_order_id = models.CharField(max_length=256)
+    razorpay_payment_id = models.CharField(max_length=256)
+    razorpay_amount = models.FloatField(),
+    razorpay_currency =  models.CharField(max_length=16)
+
+    def __str__(self):
+        return f"{self.razorpay_order_id} - ({self.status})"

@@ -11,6 +11,8 @@ from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import JsonResponse
 from django.core.serializers import json
+import core.payment as payment
+from core import payment
 
 
 # ============================ Core Views start ====================================#
@@ -35,8 +37,96 @@ class HomeView(views.TemplateView):
 class AboutUsView(views.TemplateView):
     template_name = "core/about_us.html"
 
-
 # ============================ Core Views end ======================================#
+
+
+# ===========================Subscription Start=================================#
+class PaymentView(LoginRequiredMixin, views.View):
+    template_name = "core/pay.html"
+    RAZORPAY_CLIENT = razorpay.Client(
+        auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
+    )
+
+    def get(self, request, *args, **kwargs):
+        pk = kwargs.get("pk")
+        service = core_models.ServiceModel.objects.get(id=pk)
+        client = self.RAZORPAY_CLIENT
+        # params
+        amount = service.cost
+        currency = "INR"
+        payment_capture = "1"
+        callback_url = reverse_lazy("core:payment_completed", kwargs={"pk":kwargs.get("pk")})
+
+        order = payment.create_order(
+            client, amount, callback_url, receipt=None, currency=currency
+        )
+        print(order)
+        context = {}
+        context.update(order)
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        try:
+            # get the required parameters from post request.
+            payment_id = request.POST.get("razorpay_payment_id", "")
+            amount = request.POST.get("razorpay_amount", "0")
+            razorpay_order_id = request.POST.get("razorpay_order_id", "")
+            signature = request.POST.get("razorpay_signature", "")
+
+            params_dict = {
+                "razorpay_order_id": razorpay_order_id,
+                "razorpay_payment_id": payment_id,
+                "razorpay_signature": signature,
+            }
+            print("#DEBUG: Amount", type(amount), amount)
+            try:
+                amount = int(float(amount))/100
+            except Exception as e:
+                print("#DEBUG: amount can be converted into integer", e)
+                amount = 5000
+            print("#DEBUG: verifying the payment signature...", params_dict, amount)
+
+            # verify the payment signature.
+            result = self.RAZORPAY_CLIENT.utility.verify_payment_signature(params_dict)
+            print("#DEBUG: verifying the payment signature... Completed.") 
+
+            if result is not None:
+
+                try:
+                    print("#DEBUG: Payment capturing...")
+                    # capture the payment
+                    self.RAZORPAY_CLIENT.payment.capture(payment_id, amount)
+                    print("#DEBUG: Payment captured...")
+                    print("#DEBUG: Payment model creating...")
+
+                    core_models.Payment.objects.create(
+                        razorpay_order_id=razorpay_order_id,
+                        razorpay_payment_id=payment_id,
+                        status=core_models.Payment.PaymentStatusChoices.completed,
+                        mode="",
+                    )
+                    print("#DEBUG: Payment model created...")
+
+
+                    # render success page on successful caputre of payment
+                    return render(request, "core/paymentsuccess.html")
+                except Exception as e:
+                    print("#DEBUG: there is an error while capturing payment...", e)
+                    
+                    # if there is an error while capturing payment.
+                    return render(request, "core/paymentfail.html")
+            else:
+                print("#DEBUG: signature verification failed...", e)
+                # if signature verification fails.
+                return render(request, "core/paymentfail.html")
+        except Exception as e:
+            print("#DEBUG: we don't find the required parameters in POST data", e)
+            # if we don't find the required parameters in POST data
+            return redirect(reverse_lazy("core:payment_completed", kwargs={"pk":self.kwargs.get("pk")}))
+
+# ===========================Subscription End====================================#
+
+
 
 
 # ===========================Feedback Cred start====================================#
@@ -175,6 +265,11 @@ class AddToFavouriteView(views.View):
 class HostView(views.TemplateView):
     template_name = "core/room/host.html"
 
+class HostDetailView(views.DetailView):
+    template_name = "core/room/hostroom.html"
+    model = core_models.HostModel
+    context_object_name = "host"
+
 
 class JoinView(views.TemplateView):
     template_name = "core/room/join.html"
@@ -183,21 +278,7 @@ class JoinView(views.TemplateView):
 # ===========================Room Views End=====================================#
 
 
-# ===========================Subscription Start=================================#
 
-
-class PaymentView(views.View):
-    def get(self, request):
-
-        client = razorpay.Client(
-            auth=(settings.RAZORPAY_KEY_ID, settings.RAZORPAY_KEY_SECRET)
-        )
-        payment = client.order.create(  # type: ignore
-            {"amount": 10000, "currency": "INR", "payment_capture": "1"}
-        )
-
-
-# ===========================Subscription End====================================#
 
 
 # ===========================Song Api End====================================#

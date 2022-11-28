@@ -12,6 +12,7 @@ urlpatterns = [
      path("playlist/", views.PlaylistView.as_view(), name="playlist"),
      path("queue/<int:pk>/queue", views.QueueView.as_view(), name="queue"),
      path("host/", views.HostView.as_view(), name="host"),
+     path("host/<int:pk>/room", views.HostDetailView.as_view(), name="hostroom"),
      path("join/", views.JoinView.as_view(), name="join"),
      path("genre/", views.GenreView.as_view(), name="genre"),
      path("genre/<int:pk>/detail", views.GenreDetailView.as_view(), name="genre_detail"),

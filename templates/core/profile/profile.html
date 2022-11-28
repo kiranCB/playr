@@ -55,9 +55,7 @@
                   {% csrf_token %}
                   <input id="imageUpload" type="file" name="profile_photo" placeholder="Photo" required="" capture>
                 </form>
-
               </div>
-
             </div>
             {% else %}
             <tr>
@@ -68,11 +66,19 @@
               </td>
             </tr>
             {% endif %}
+            {% if user.is_authenticated %}
+            <div class="nav-item me-3">
+              <a href="{% url 'user:user_logout' %}" class="btn btn-success ms-2 me-2">Subscription</a>
+            {% else %}
+              <a href="{% url 'user:user_login' %}" class="btn btn-primary ms-2 me-2">
+              Subscribe
+              </a>
+            {% endif %}
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </section>
 {% include 'includes/footer.html' %}

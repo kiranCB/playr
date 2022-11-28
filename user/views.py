@@ -83,3 +83,10 @@ class ProfileDetailView(views.TemplateView):
     context_object_name = "profile"
 
 # ================= Profile View end ===============================#
+
+# ================= Subscription View Start ========================#
+class SubscriptionView(views.TemplateView):
+    template_name = "payment/subscription.html"
+
+# ================= Subscription View end ==========================#
+
