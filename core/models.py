@@ -123,6 +123,38 @@ class JoinModel(TimeStamp, models.Model):
         return f"{self.room_name}"
 
 
+class SubscriptionModel(TimeStamp, models.Model):
+    class SubscriptionTypeChoice(models.TextChoices):
+        MONTH = "month", "Monthly"
+        YEAR = "year", "Yearly"
+
+    cost = models.FloatField()
+    type = models.CharField(
+        max_length=5,
+        choices=SubscriptionTypeChoice.choices,
+        default=SubscriptionTypeChoice.MONTH,
+    )
+
+    def __str__(self):
+        name = (
+            f"{self.cost}/{(self.SubscriptionTypeChoice(self.type).name).capitalize()}"
+        )
+        return name
+
+
+class SubscriberModel(TimeStamp, models.Model):
+    user = models.OneToOneField(USER, on_delete=models.CASCADE)
+    subscription = models.OneToOneField(
+        SubscriptionModel, on_delete=models.SET_NULL, null=True, blank=True
+    )
+    auto_renew = models.BooleanField(default=True)
+    validity = models.DateField()
+
+    def __str__(self):
+        name = f"{self.user} {self.subscription}"
+        return name
+
+
 # ===================Room Model End=======================#
 class Payment(TimeStamp, models.Model):
     class PaymentStatusChoices:
@@ -140,11 +172,12 @@ class Payment(TimeStamp, models.Model):
         choices=PAYMENT_STATUS_CHOICES,
         default=PaymentStatusChoices.pending,
     )
+    subscriber = models.ForeignKey(SubscriberModel, on_delete=models.CASCADE)
     mode = models.CharField(max_length=50, null=True, blank=True)
     razorpay_order_id = models.CharField(max_length=256)
     razorpay_payment_id = models.CharField(max_length=256)
-    razorpay_amount = models.FloatField(),
-    razorpay_currency =  models.CharField(max_length=16)
+    razorpay_amount = (models.FloatField(),)
+    razorpay_currency = models.CharField(max_length=16)
 
     def __str__(self):
         return f"{self.razorpay_order_id} - ({self.status})"

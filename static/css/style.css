@@ -10,8 +10,6 @@ audio{
   text-decoration:none;
 }
 
-
-
 /*================= audio decoration end ==================== */
 
 /*================= Text decoration start ==================== */
@@ -32,6 +30,7 @@ body {
 .poppins {
   font-family: "Poppins", sans-serif;
 }
+
 footer a:hover{
   text-decoration: underline;
 }

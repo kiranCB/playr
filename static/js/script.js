@@ -82,7 +82,7 @@ if (forms) {
       switch (elem.tagName.toLowerCase()) {
         case "input":
           switch (elem.type.toLowerCase()) {
-            case "check":
+            case "checkbox":
               elem.classList.add("form-check-input");
               break;
 

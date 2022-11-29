@@ -27,4 +27,7 @@ urlpatterns = [
        # favourite
      path("favourite/", views.FavouriteView.as_view(), name="favourite"),
      path("song/<int:pk>/add/", views.AddToFavouriteView.as_view(), name="add_to_favorite"),
+    #  Subscription
+    path("user/subcription/", views.SubcribeView.as_view(), name="subscribe_user"),
+    path("user/subscription/payment/", views.SubscriptionPaymentView.as_view(), name="payment"),
 ]

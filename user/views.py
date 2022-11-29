@@ -13,6 +13,7 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.contrib import messages
 from user.forms import UserRegisterform
+
 # =================== Registration Views Start =========================#
 
 # UserCreateView
