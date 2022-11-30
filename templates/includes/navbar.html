@@ -139,12 +139,13 @@
             </ul>
           </li>
           <li>
-            <form class="d-flex mt-3" role="search">
+            <form action="{% url 'core:song_search' %}" class="d-flex mt-3" role="search">
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                name="q"
               />
               <button class="btn btn-success" type="submit">Search</button>
             </form>

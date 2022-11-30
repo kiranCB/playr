@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic as views
+from django.db.models import F, Q
 
 import core.payment as payment
 from core import models as core_models
@@ -344,3 +345,15 @@ class SongsAPIView(views.View):
         songs = self.model.objects.filter().order_by("-name")
         context = {"songs": songs}
         return context
+
+# ===========================Song Api End====================================#
+class SongSearchView(views.ListView):
+    template_name = "core/list.html"
+    model = core_models.SongModel
+    context_object_name = "songs"
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super().get_queryset(*args, **kwargs)
+        q = self.request.GET.get("q", None)
+        qs = qs.filter(Q(name__icontains=q) | Q(artistmodel__name__icontains=q))
+        return qs
